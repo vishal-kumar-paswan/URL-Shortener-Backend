@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { check } = require("express-validator");
-const { shortenURL, getURL } = require("../controllers/url-shortener");
+const { shortenURL, getURL, redirectToURL } = require("../controllers/url-shortener");
 
 router.post("/",
     [
@@ -9,6 +9,7 @@ router.post("/",
         check("url", "Enter a valid URL").isURL(),
     ],
     shortenURL);
-router.get("/:id", getURL);
+router.get("/get-url/:id", getURL);
+router.get("/:id", redirectToURL);
 
 module.exports = router;
