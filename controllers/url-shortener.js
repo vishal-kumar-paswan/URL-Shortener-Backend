@@ -24,7 +24,7 @@ exports.shortenURL = async (req, res) => {
 
         const shortenURL = new ShortenURL({ id: id, url: url });
         await shortenURL.save();
-        return res.status(200).json({ shortenURL: `https://tinylink-io.vercel.app/${id}` });
+        return res.status(200).json({ shortenURL: `tinylink-io.vercel.app/${id}` });
     } catch (error) {
         return res.status(400).json({ error: `ERROR: ${error}` });
     }
